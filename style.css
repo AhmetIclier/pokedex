@@ -1,9 +1,32 @@
 body {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 #pokedex {
     min-height: 50vh;
-    background-color: rgb(147, 16, 16);
+    background-color: #fb6c6c;
     color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    z-index: 9;
+    position: relative;
+}
+
+
+
+#pokeImage {
+    width: 300px;
+    height: auto;
+}
+
+.info-container {
+    position: absolute;
+    background-color: #3b3b3b;
+    margin-top: -40px;
+    min-height: 100px;
+    z-index: 1;
 }
