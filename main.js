@@ -14,7 +14,7 @@ async function loadPokemon() {
 
 function renderCard(pokemonData, j) {
     return `
-    <div class="miniCard ${renderBGColor(pokemonData)}" id="pokeCard(${j})" onclick="openCard(${j})">
+    <div class="miniCard ${renderBGColor(pokemonData)}" id="pokeCard(${j})" onclick="openCard(${pokemonData, j})">
         <div class="left">
             <h3>${renderName(pokemonData)}</h3>
             <div class="typeBox" id="typeBox${j}"></div>
