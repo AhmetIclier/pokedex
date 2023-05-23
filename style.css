@@ -75,53 +75,53 @@ header img {
 
 /* BG-COLORS */
 .grass {
-    background-color: #49d0b0
+    background: linear-gradient(90deg, rgba(73,208,176,1) 0%, rgba(4,142,109,1) 100%);
 }
 .fire {
-    background-color: #fb6c6c
+    background: linear-gradient(90deg, rgba(251,108,108,1) 0%, rgb(236, 42, 42) 100%);
 }
 .water {
-    background-color: #76bdfe
+    background: linear-gradient(90deg, rgba(118,189,254,1) 0%, rgba(51,147,236,1) 100%);
 }
 .bug {
-    background-color: #76e276
+    background: linear-gradient(90deg, rgba(118,226,118,1) 0%, rgba(43,167,43,1) 100%);
 }
 .normal {
-    background-color: #f2d4ae
+    background: linear-gradient(90deg, rgba(242,212,174,1) 0%, rgba(213,158,88,1) 100%);
 }
 .poison {
-    background-color: #f62ff6
+    background: linear-gradient(90deg, rgba(246,47,246,1) 0%, rgba(177,32,177,1) 100%);
 }
 .electric {
-    background-color: #ffd900
+    background: linear-gradient(90deg, rgba(255,217,0,1) 0%, rgba(150,129,4,1) 100%);
 }
 .ground {
-    background-color: #b89567
+    background: linear-gradient(90deg, rgba(184,149,103,1) 0%, rgba(149,117,75,1) 100%);
 }
 .fairy {
-    background-color: #ffc8c8
+    background: linear-gradient(90deg, rgba(255,200,200,1) 0%, rgba(182,144,144,1) 100%);
 }
 .fighting {
-    background-color: #932d2d
+    background: linear-gradient(90deg, rgba(147,45,45,1) 0%, rgba(73,14,14,1) 100%);
 }
 .psychic {
-    background-color: #9c009c
+    background: linear-gradient(90deg, rgba(156,0,156,1) 0%, rgba(79,0,79,1) 100%);
 }
 .rock {
-    background-color: gray
+    background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(85,85,85,0) 100%);
 }
 .ghost {
-    background-color: #484141
+    background: linear-gradient(90deg, rgba(72,65,65,1) 0%, rgba(50,45,45,1) 100%);
 }
 .ice {
-    background-color: #b8b8ff
+    background: linear-gradient(90deg, rgba(184,184,255,1) 0%, rgba(134,134,250,1) 100%);
 }
 .dragon {
-    background-color: #9dc97c
+    background: linear-gradient(90deg, rgba(157,201,124,1) 0%, rgba(118,161,86,1) 100%);
 }
 .dark {
-    background-color: #000
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(80,80,80,1) 100%);
 }
 .steel {
-    background-color: #d3d3d3
+    background: linear-gradient(90deg, rgba(211,211,211,1) 0%, rgba(145,145,145,1) 100%);
 }
