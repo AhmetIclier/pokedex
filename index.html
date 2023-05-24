@@ -11,7 +11,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
-<body onload="loadPokemon()">
+<body onload="loadPokemon()"> 
+    <!-- -->
+    
+        <div class="cardContent" id="openCard">
+            <div class="cardTop ${renderBGcolor()}">
+                <div class="card-topline">
+                    <div class="cardleft">
+                        <button class="close" onclick="closeCard()">&times;</button>
+                    </div>
+                    <div class="cardright">#12</div>
+                </div>
+                <img src="img/pokeball.jpg">
+            </div>
+            <div class="cardBottom">
+                <h2>Lapras</h2>
+                <div class="cardTags">
+                    <div class="openCardTag">Water</div>
+                    <div class="openCardTag">Ice</div>
+                </div>
+                <div class="weight-n-height">
+                    <div class="unit-container">
+                        <div class="unit-value">90.5 KG</div>
+                        <div class="unit">Weight</div>
+                    </div>
+                    <div class="unit-container">
+                        <div class="unit-value">1.60 M</div>
+                        <div class="unit">Height</div>
+                    </div>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="stats" class="stats"></canvas>
+                </div>
+            </div>
+        </div>
+    
+    <div id="overlay"></div>
+
+
     <header>
         <img src="img/logo.png" alt="PokeDex">
     </header>
