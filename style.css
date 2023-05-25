@@ -63,15 +63,22 @@ header img {
     border-radius: 15px;
     padding: 1rem;
     min-width: 305px;
+    
 }
 
 .miniCard:hover {
     cursor: pointer;
-    opacity: 90%;
+    opacity: 95%;
+    transition: all 200ms ease-in-out;
 }
 
 .miniCard img {
     width: 150px;
+}
+
+.miniCard:hover img {
+    transform: scale(1.15);
+    transition: all 200ms ease-in-out;
 }
 
 /* BG-COLORS */
@@ -161,21 +168,21 @@ header img {
 
 .cardContent {
     background-color: #2b292c;
-    max-width: 300px;
+    width: 350px;
     border-radius: 25px;
-
+    -webkit-box-shadow:0px 0px 31px 5px rgba(255,255,255,0.5);
+    -moz-box-shadow: 0px 0px 31px 5px rgba(255,255,255,0.5);
+    box-shadow: 0px 0px 31px 5px rgba(255,255,255,0.5);
 }
 
 .cardTop {
     display: flex;
     flex-direction: column;
-    background-color: aqua;
     color: white;
     border-radius: 20px;
-    max-width: 300px;
-    padding: .7rem 1rem;
+    width: 320px;
+    padding: 10px 15px;
     height: 200px;
-    
 }
 
 .close {
@@ -204,6 +211,8 @@ header img {
     align-self: center;
     margin-top: -150px;
     padding-top: 50%;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
 .cardright {
@@ -265,6 +274,37 @@ header img {
 
 .canvas-container {
     width: 90%;
-    background-color: #3b3a3b;
     margin-top: 2rem;
+}
+
+@media (max-width: 400px) {
+    .overview{
+        justify-content: center;
+    }
+    .miniCard{
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+        padding-left: .5rem;
+        padding-right: .5rem;
+        max-width: 320px; 
+    }
+
+    #openCard {
+        max-width: 320px;
+        border-radius: 0; 
+    }
+
+    .cardTop {
+        max-width: 300px;
+        border-radius: 0; 
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .Bottom {
+        max-width: 320px;
+        border-radius: 0; 
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }

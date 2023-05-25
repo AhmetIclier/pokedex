@@ -63,6 +63,7 @@ function viewCard(pokemonData) {
     //todo: generate card
     card.innerHTML = generateCardTop(pokemonData);
     card.innerHTML += generateCardBottom(pokemonData);
+    renderCanvas(pokemonData);
     toggleVisibility();
 }
 
@@ -98,10 +99,50 @@ function generateCardBottom(pokemon) {
             </div>
         </div>
         <div class="canvas-container">
-            <canvas id="stats" class="stats"></canvas>
+            <canvas id="stats${pokemon['id']}" width="270px" height="150px" class="stats"></canvas>
         </div>
     </div>
-    `
+    `;
+}
+
+function renderCanvas(pokemon) {
+    const canvas = document.getElementById(`stats${pokemon['id']}`);
+    new Chart(canvas, {
+        type: 'bar',
+    data: {
+        labels: ['HP', 'ATK', 'DEF', 'SP. ATK', 'SP. DEF', 'SPD'],
+        datasets: [{
+            labels: 'not needed',
+            data:[
+                pokemon['stats']['0']['base_stat'],
+                pokemon['stats']['1']['base_stat'],
+                pokemon['stats']['2']['base_stat'],
+                pokemon['stats']['3']['base_stat'],
+                pokemon['stats']['4']['base_stat'],
+                pokemon['stats']['5']['base_stat']],
+            borderWidth: 0,
+            backgroundColor: [
+                '#d43a49',
+                '#fda827',
+                '#0091ea',
+                '#d0870b',
+                '#026aaf',
+                '#388e3a'
+            ]
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                display: false,
+                labels: {
+                    color: 'rgb(255, 99, 132)'
+                }
+            }
+        },
+        indexAxis: 'y'
+    } 
+    })
 }
 
 function renderWeight(pokemon) {
