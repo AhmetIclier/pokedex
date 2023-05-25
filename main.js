@@ -83,25 +83,24 @@ function generateCardTop(pokemon) {
 function generateCardBottom(pokemon) {
     return `
     <div class="cardBottom">
-                <h2>${renderName(pokemon)}</h2>
-                <div class="cardTags">
-                    ${renderTypes(pokemon)}
-                    
-                </div>
-                <div class="weight-n-height">
-                    <div class="unit-container">
-                        <div class="unit-value">${renderWeight(pokemon)} KG</div>
-                        <div class="unit">Weight</div>
-                    </div>
-                    <div class="unit-container">
-                        <div class="unit-value">${renderHeight(pokemon)} M</div>
-                        <div class="unit">Height</div>
-                    </div>
-                </div>
-                <div class="canvas-container">
-                    <canvas id="stats" class="stats"></canvas>
-                </div>
+        <h2>${renderName(pokemon)}</h2>
+        <div class="cardTags">
+            ${renderTypes(pokemon)}
+        </div>
+        <div class="weight-n-height">
+            <div class="unit-container">
+                <div class="unit-value">${renderWeight(pokemon)} KG</div>
+                <div class="unit">Weight</div>
             </div>
+            <div class="unit-container">
+                <div class="unit-value">${renderHeight(pokemon)} M</div>
+                <div class="unit">Height</div>
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="stats" class="stats"></canvas>
+        </div>
+    </div>
     `
 }
 
@@ -113,14 +112,18 @@ function renderHeight(pokemon) {
 }
 
 function renderTypes(pokemon) {
-    return `
-        <div class="openCardTag ${renderTagColor(0, pokemon)}">${pokemon['types']['0']['type']['name']}</div>
-        <div class="openCardTag ${renderTagColor(1, pokemon)}">${pokemon['types']['1']['type']['name']}</div>
-    `
-}
-
-function renderTagColor(id, pokemon) {
-    return pokemon['types'][id]['type']['name'];
+    if (pokemon['types'].length === 1) {
+        return `<div class="openCardTag ${pokemon['types'][0]['type']['name']}">
+                    ${pokemon['types'][0]['type']['name']}
+                </div>`
+    } else if (pokemon['types'].length === 2) {
+        return `<div class="openCardTag ${pokemon['types'][0]['type']['name']}">
+                    ${pokemon['types'][0]['type']['name']}
+                </div>
+                <div class="openCardTag ${pokemon['types'][1]['type']['name']}">
+                    ${pokemon['types'][1]['type']['name']}
+                </div>`
+    }
 }
 
 

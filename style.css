@@ -200,11 +200,10 @@ header img {
 }
 
 .cardTop img {
-    max-width: 100px;
+    max-width: 150px;
     align-self: center;
-    margin-top: -100px;
+    margin-top: -150px;
     padding-top: 50%;
-
 }
 
 .cardright {
