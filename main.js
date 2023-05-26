@@ -1,6 +1,8 @@
 "use strict";
 let currentGen = 0;
 let nextGenCount = 151;
+let loadedPokemon = [];
+
 async function loadPokemon() {
     // document.getElementById('pokeContainer').innerHTML = '';
     for (let i = currentGen+1; i<nextGenCount+1; i++) {
@@ -13,6 +15,18 @@ async function loadPokemon() {
 }
 
 function renderCard(pokemonData, j) {
+    loadedPokemon.push(`
+    <div class="miniCard ${renderBGColor(pokemonData)}" id="pokeCard(${j})" onclick="openCard(${j})">
+        <div class="left">
+            <h3>${renderName(pokemonData)}</h3>
+            <div class="typeBox" id="typeBox${j}"></div>
+        </div>
+        <div class="right">
+            <h4>#${renderPokeID(pokemonData)}</h4>
+            <img src="${renderIMG(pokemonData)}"> 
+        </div>
+    </div>
+`);
     return `
     <div class="miniCard ${renderBGColor(pokemonData)}" id="pokeCard(${j})" onclick="openCard(${j})">
         <div class="left">
@@ -27,9 +41,20 @@ function renderCard(pokemonData, j) {
 `
 }
 
-// async function addNextGen() {
+function liveSearch() {
+    let search = document.getElementById('search').value;
+    search = search.toLowerCase();
 
-// }
+    let pokemonOverview = document.getElementById('pokeContainer');
+    pokemonOverview.innerHTML = '';
+
+    for (let i = 0; i < loadedPokemon.length; i++) {
+        let pokemoncontainer = loadedPokemon[i];
+        if (pokemoncontainer.toLowerCase().includes(`<h3>${search}`)) {
+            pokemonOverview.innerHTML += pokemoncontainer;
+        }
+    }
+}
 
 function nextGen() {
     switch (nextGenCount) {

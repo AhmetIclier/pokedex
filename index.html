@@ -19,9 +19,12 @@
     </div>
     <div id="overlay" onclick="closeCard()"></div>
 
-    <header>
-        <img src="img/logo.png" alt="PokeDex">
-    </header>
+    <div class="menuBar">
+        <header class="wrapper">
+            <img src="img/logo.png" alt="PokeDex">
+            <input type="text" placeholder="live search" id="search" onkeyup="liveSearch()">
+        </header>
+    </div>
     <div class="wrapper">
         <section id="pokeContainer" class="overview">
         </section>
