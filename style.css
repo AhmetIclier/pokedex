@@ -18,7 +18,7 @@ header img {
 }
 
 .wrapper {
-    max-width: 1200px;
+    max-width: 1550px;
     margin: auto;
 }
 
@@ -166,6 +166,11 @@ header img {
     pointer-events: all;
 }
 
+.d-none {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
 .cardContent {
     background-color: #2b292c;
     width: 350px;
@@ -183,6 +188,37 @@ header img {
     width: 320px;
     padding: 10px 15px;
     height: 200px;
+}
+
+.img-box {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-box {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.332);
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn-box button {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .close {
@@ -275,6 +311,28 @@ header img {
 .canvas-container {
     width: 90%;
     margin-top: 2rem;
+}
+
+#nextGenButton {
+    display: flex;
+    justify-content: center;
+}
+.nextGenButton {
+    min-width: 250px;
+    padding: .5rem .7rem;
+    border: none;
+    background-color: #d53b47;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    height: 3rem;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.nextGenButton:hover {
+    background-color: #a12c36;
 }
 
 @media (max-width: 400px) {

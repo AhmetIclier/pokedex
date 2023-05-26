@@ -1,15 +1,15 @@
 "use strict";
-
-let currentPokemon;
-
+let currentGen = 0;
+let nextGenCount = 151;
 async function loadPokemon() {
-    for (let i = 1; i<152; i++) {
+    // document.getElementById('pokeContainer').innerHTML = '';
+    for (let i = currentGen+1; i<nextGenCount+1; i++) {
         const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
         const pokemonData = await pokemon.json();
+        
         document.getElementById('pokeContainer').innerHTML += renderCard(pokemonData, i);
         renderMiniTypes(pokemonData, i)
     }
-    
 }
 
 function renderCard(pokemonData, j) {
@@ -25,6 +25,54 @@ function renderCard(pokemonData, j) {
         </div>
     </div>
 `
+}
+
+// async function addNextGen() {
+
+// }
+
+function nextGen() {
+    switch (nextGenCount) {
+        case 151:
+            currentGen = nextGenCount;
+            nextGenCount = 251;
+            loadPokemon();
+            break;
+        case 251:
+            currentGen = nextGenCount;
+            nextGenCount = 386;
+            loadPokemon();
+            break;
+        case 386:
+            currentGen = nextGenCount;
+            nextGenCount = 493;
+            loadPokemon();
+            break;
+        case 493:
+            currentGen = nextGenCount;
+            nextGenCount = 649;
+            loadPokemon();
+            break;
+        case 649:
+            currentGen = nextGenCount;
+            nextGenCount = 721;
+            loadPokemon();
+            break;
+        case 721:
+            currentGen = nextGenCount;
+            nextGenCount = 809;
+            loadPokemon();
+            break;
+        case 809:
+            currentGen = nextGenCount;
+            nextGenCount = 1017;
+            loadPokemon();
+            break;
+        case 1017:
+            currentGen = nextGenCount;
+            document.getElementById('nextGenButton').classList.add('d-none');
+            break;
+    }
 }
 
 function renderPokeID(pokemonData) {
@@ -55,17 +103,36 @@ async function openCard(j) {
     let thisPokemon = await fetch(url);
     let pokemon = await thisPokemon.json();
     viewCard(pokemon);
+    if (j < 2) {
+        document.getElementById(`next-btn${j}`).classList.remove('d-none');
+        document.getElementById(`prev-btn${j}`).classList.add('d-none');
+    } else if (j == nextGenCount) {
+        document.getElementById(`next-btn${j}`).classList.add('d-none');
+        document.getElementById(`prev-btn${j}`).classList.remove('d-none');
+    }
 }
 
 function viewCard(pokemonData) {
     const card = document.getElementById('openCard');
-    
-    //todo: generate card
     card.innerHTML = generateCardTop(pokemonData);
     card.innerHTML += generateCardBottom(pokemonData);
     renderCanvas(pokemonData);
     toggleVisibility();
 }
+
+function next(id) {
+    if (id === nextGenCount) {
+        document.getElementById(`next-btn${id}`).classList.add('d-none');
+    } else if ( id < nextGenCount) {
+        openCard(id+1);
+    }
+}
+
+function prev(id) {
+    openCard(id-1);
+}
+
+
 
 function generateCardTop(pokemon) {
     return `
@@ -76,7 +143,15 @@ function generateCardTop(pokemon) {
             </div>
             <div class="cardright">${renderPokeID(pokemon)}</div>
         </div>
-        <img src="${renderIMG(pokemon)}">
+        <div class="img-box">
+            <div onclick="prev(${pokemon['id']})" class="btn-box" id="prev-btn${pokemon['id']}">
+                <button>&lt;</button>
+            </div>
+            <img src="${renderIMG(pokemon)}">
+            <div onclick="next(${pokemon['id']})" class="btn-box" id="next-btn${pokemon['id']}">
+                <button>&gt;</button>
+            </div>
+        </div>
     </div>
     `
 }
